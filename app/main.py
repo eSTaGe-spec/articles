@@ -38,10 +38,10 @@ def create_article(article: CreateArticleDTO, db: Session = Depends(get_db)):
             detail='Автор с таким id не найден'
         )
 
-    new_article = Article(title=article.Title, content=article.Content, author_id=author.id)
+    new_article = Article(title=article.title, content=article.content, author_id=author.id)
     db.add(new_article)
     db.commit()
-    return ArticleDTO(Title=new_article.title, Content=new_article.content)
+    return new_article
 
 
 @app.get('/all', response_model=List[AuthorDTO], tags=['user'])

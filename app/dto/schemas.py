@@ -8,8 +8,8 @@ class CreateAuthorDTO(BaseModel):
 
 
 class CreateArticleDTO(BaseModel):
-    Title: constr(min_length=3, max_length=100) = Field(..., pattern=r'^[a-zA-Z]+$', example='London')
-    Content: constr(max_length=200) = Field(..., pattern=r'^[a-zA-Z\s]+$',
+    title: constr(min_length=3, max_length=100) = Field(..., pattern=r'^[a-zA-Z\s]+$', example='London')
+    content: constr(max_length=200) = Field(..., pattern=r'^[a-zA-Z\s]+$',
                                             example='London is the capital of Great Britain')
     author_id: int = Field(..., example=1)
 
